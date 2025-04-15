@@ -1,0 +1,34 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Playwright browser binaries (optional)
+playwright/.cache/
+ms-playwright/
+
+# Logs & Reports
+*.log
+output/
+allure-results/
+allure-report/
+
+# VS Code settings (optional)
+.vscode/
+
+# Environment files
+.env
+.env.test
+.env.local
+
+# Jest & Coverage
+jest-results/
+coverage/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+node_modules
