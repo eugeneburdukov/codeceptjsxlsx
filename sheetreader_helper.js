@@ -3,7 +3,6 @@ const XLSX = require('xlsx');
 const path = require('path');
 
 class SheetReader extends Helper {
-
   /**
    * Reads and parses the first sheet of an XLS/XLSX file
    * @param {string} filePath - Path to the Excel file
@@ -30,16 +29,31 @@ class SheetReader extends Helper {
     return XLSX.utils.sheet_to_json(worksheet);
   }
 
+  /**
+   * Picks a random index from the first sheet
+   * @param {string} filePath
+   * @returns {number}
+   */
   pickRandomIndex(filePath) {
     const workbook = XLSX.readFile(filePath);
     const sheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[sheetName];
     const data = XLSX.utils.sheet_to_json(worksheet);
-
-    // Generate a random index between 0 and data.length - 1
     return Math.floor(Math.random() * data.length);
   }
 
+  /**
+   * Picks a random index from a specific sheet
+   * @param {string} filePath
+   * @param {string} sheetName
+   * @returns {number}
+   */
+  pickRandomIndexFromSheet(filePath, sheetName) {
+    const workbook = XLSX.readFile(filePath);
+    const worksheet = workbook.Sheets[sheetName];
+    const data = XLSX.utils.sheet_to_json(worksheet);
+    return Math.floor(Math.random() * data.length);
+  }
 }
 
 module.exports = SheetReader;

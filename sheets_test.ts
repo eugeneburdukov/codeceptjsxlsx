@@ -17,12 +17,12 @@ Feature('sheets');
 
 Scenario('Read certain rows', async ({ I }) => {
     const sheetReader = codeceptjs.container.helpers('SheetReader');
-    const data = sheetReader.readXlsFile('./data/file_example_XLS_10.xls');
+    const data = sheetReader.readSheet('./data/test_people_by_region.xlsx', 'AB');
     const numberOfRows = data.length;
-    console.log('All Column names:', numberOfRows);
+    console.log('Number of rows in the document - tab:', numberOfRows);
 
     // Generate a random index between 0 and numberOfRows - 1 (inclusive)
-    const randomIndex = sheetReader.pickRandomIndex('./data/file_example_XLS_10.xls');
+    const randomIndex = sheetReader.pickRandomIndexFromSheet('./data/test_people_by_region.xlsx', 'AB');
     console.log('Show random index - random row number from helper: ', randomIndex);
 
     const columnNames = Object.keys(data[0]);
@@ -37,7 +37,8 @@ Scenario('Read certain rows', async ({ I }) => {
     let gender = row['Gender'];
     let age = row['Age'];
     let date = row['Date'];
+    let id = row['Date'];
 
-    console.log(firstName + " " + gender + " " + age + " " + date);
+    console.log(firstName + " " + gender + " " + age + " " + date + " " + id);
 
 }).tag('readxlx');
