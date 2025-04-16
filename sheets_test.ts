@@ -1,5 +1,19 @@
 Feature('sheets');
 
+function excelDateToJSDate(serial) {
+  const utcDays = Math.floor(serial - 25569); // 25569 is the Excel offset for Unix epoch
+  const utcValue = utcDays * 86400; // seconds in a day
+  const date = new Date(utcValue * 1000); // convert to JS Date in milliseconds
+
+  // Format as MM/DD/YYYY
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // getUTCMonth is 0-based
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  const year = date.getUTCFullYear();
+
+  return `${month}/${day}/${year}`;
+}
+
+
 //npx codeceptjs gh - create helper
 //npm install xlsx - install package
 // Convert Excel sheet to JSON and automatically parse Excel date serials into JavaScript Date objects.
