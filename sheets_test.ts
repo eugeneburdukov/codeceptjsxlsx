@@ -2,7 +2,7 @@ Feature('sheets');
 
 //npx codeceptjs gh - create helper
 //npm install xlsx - install package
-/ Convert Excel sheet to JSON and automatically parse Excel date serials into JavaScript Date objects.
+// Convert Excel sheet to JSON and automatically parse Excel date serials into JavaScript Date objects.
 // Without `cellDates: true`, Excel dates (e.g., "Jan 1, 1982") are returned as numeric serials (e.g., 29952).
 //  return XLSX.utils.sheet_to_json(worksheet, { cellDates: true }); // ✅
 
