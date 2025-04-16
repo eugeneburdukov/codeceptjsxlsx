@@ -17,6 +17,9 @@ export const config: CodeceptJS.MainConfig = {
     },
     SheetReader: {
       require: './sheetreader_helper.js',
+    },
+    FakerHelper: {
+      require: './faker_helper.js',
     }
   },
   include: {
